@@ -1,4 +1,4 @@
 from distutils.core import setup
 import py2exe
 
-setup(console=['odds_computer.py'])
+setup(console=['give-me-the-odds.py'])
