@@ -109,7 +109,7 @@ the algorithme uses an object of this sort :
 'current_autonomy': number}
 ```
 We manage collections of this object, and we iterate on every day until we find an optimal path, or the current day of iteration goes beyond the countdown where the planet would be destroyed, and all hopes are doomed.
-We don't record the path history and only interest ourselves at snapshots of where the ship could it be at a certain time, because it's the only information we need along the number of bounty hunters the ship has met.
+We don't record the path history and only interest ourselves at snapshots of where the ship could be at a certain time, because it's the only information we need along the number of bounty hunters the ship has met.
 # BFS
 I am using a BFS(Breadth First Search) Solution 
 ## Pros:
