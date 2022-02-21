@@ -99,21 +99,21 @@ pyinstaller --onefile give-me-the-odds.py
 Don't forget to put your universe.db of choice in the root folder of the exe.
 
 # Algorithme
-## BFS
+# BFS
 I am using a BFS(Breadth First Search) Solution 
-# Pros:
+## Pros:
 - quick to imagine and setup.
 - good maintenability and readability.
-# Cons:
+## Cons:
 - will likely use more memory depending on the data.
 - similar performances to DFS in most cases.
 
-## DFS (Depth First Search) 
-# Pros:
+# DFS (Depth First Search) 
+## Pros:
 - if there is an optimal route in its first iteration the DFS can be more efficient as it would stop iterating when found.
 - likely uses less memory depending on the data.
 
-# Cons:
+## Cons:
 - worse readability and maintainability 
 - similar performances to BFS in most
 cases.
