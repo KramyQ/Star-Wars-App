@@ -87,7 +87,7 @@ npm run test:unit
 cd CLI\dist
 give-me-the-odds absolute/path/to/start-parameters.json  absolute/path/to/empire-parameters.json
 ```
-#Things to know :
+## Things to know :
 1. If you're running an other OS than windows 64bits you have to rebuild the exe 
 assuming you have python 3^ and pip installed, install what is in the requirement file and delete the dist folder
 then run :
