@@ -6,7 +6,8 @@ I have let the .env in place on git for quick testing purpose of course.
 ```python
 # run flask server
 cd backend
-pip install -r .\requirements.txt
+# on Pycharm let it automatically create your virtual environnement
+pip install -r .\requirements.txt # You can use a venv
 python .\server_start.py       
 
 # run tests
@@ -36,8 +37,9 @@ app
 
 ## Todo(missing)
 - DB and starting parameters not validated
-- Enhanced tests with variable parameters for cases
+- enhanced tests with variable parameters for cases
 - loging system but here, I couldn't have logged much, ex: IP of the people accessing my public API, and I assume this it automatically done on the web server level.
+- algorithm limit values not controlled (+32bits, negative values)
 
 # FrontEnd
 ## Installation
@@ -58,7 +60,7 @@ npm run test:unit
 - User input is content checked client-side
 
 - API in routes.py
-- algorithme in odds_computer.py
+- algorithm in odds_computer.py
 ## Setup
 - the app was created using vue-cli
 - dev dependencies and production dependencies correctly separated, using ESlint and babel
@@ -99,6 +101,16 @@ pyinstaller --onefile give-me-the-odds.py
 Don't forget to put your universe.db of choice in the root folder of the exe.
 
 # Algorithme
+The thoroughly commented version of the algo is in the backend server
+the algorithme uses an object of this sort :
+```python
+{'current_planet': string,
+'next_move_time': number,
+'nb_bounty_hunters_met': number,
+'current_autonomy': number}
+```
+We manage collections of this object, and we iterate on every day until we find an optimal path, or the current day of iteration goes beyond the countdown where the planet would be destroyed, and all hopes are doomed.
+We don't record the path history and only interest ourselves at snapshots of where the ship could be at a certain time, because it's the only information we need along the number of bounty hunters the ship has met.
 # BFS
 I am using a BFS(Breadth First Search) Solution 
 ## Pros:
@@ -118,4 +130,4 @@ I am using a BFS(Breadth First Search) Solution
 - similar performances to BFS in most
 cases.
 - doesn't scale well in certain languages
-(over flow risk)
+(overflow risk)
