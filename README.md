@@ -6,7 +6,8 @@ I have let the .env in place on git for quick testing purpose of course.
 ```python
 # run flask server
 cd backend
-pip install -r .\requirements.txt
+# on Pycharm let it automatically create your virtual environnement
+pip install -r .\requirements.txt # You can use a venv
 python .\server_start.py       
 
 # run tests
