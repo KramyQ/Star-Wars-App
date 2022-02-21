@@ -47,7 +47,7 @@ npm install
 npm run serve  
 
 # run tests
-pytest -v
+npm run test:unit
 ```
 ## Structure
 - App structured using vue single page components, and vue components
@@ -76,6 +76,7 @@ pytest -v
 - Using placeholders in the front to support language change.
 - Enhancing unit tests.
 - Using a generic object to handle api calls and responses to the user and add a loading state.
+- Implement that generic object in the Vuex store.
 
 # CLI
 
