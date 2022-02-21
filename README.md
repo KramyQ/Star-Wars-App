@@ -101,6 +101,14 @@ Don't forget to put your universe.db of choice in the root folder of the exe.
 
 # Algorithme
 The thoroughly commented version of the algo is in the backend server
+The algorithme uses a object of this sort :
+```python
+{'current_planet': string,
+'next_move_time': number,
+'nb_bounty_hunters_met': number,
+'current_autonomy': number}
+```
+We manage collections of those objects, and we iterate on every day until we find an optimal path, or the current day of iteration goes beyond the countdown where the planet would be destroyed, and all hopes are doomed.
 # BFS
 I am using a BFS(Breadth First Search) Solution 
 ## Pros:
