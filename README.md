@@ -39,7 +39,7 @@ app
 - DB and starting parameters not validated
 - Enhanced tests with variable parameters for cases
 - loging system but here, I couldn't have logged much, ex: IP of the people accessing my public API, and I assume this it automatically done on the web server level.
-- Algorithme limit values not controlled
+- Algorithme limit values not controlled (+32bits, negative values)
 
 # FrontEnd
 ## Installation
