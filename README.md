@@ -47,7 +47,7 @@ npm install
 npm run serve  
 
 # run tests
-pytest -v
+npm run test:unit
 ```
 ## Structure
 - App structured using vue single page components, and vue components
