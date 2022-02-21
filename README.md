@@ -37,9 +37,9 @@ app
 
 ## Todo(missing)
 - DB and starting parameters not validated
-- Enhanced tests with variable parameters for cases
+- enhanced tests with variable parameters for cases
 - loging system but here, I couldn't have logged much, ex: IP of the people accessing my public API, and I assume this it automatically done on the web server level.
-- Algorithme limit values not controlled (+32bits, negative values)
+- algorithm limit values not controlled (+32bits, negative values)
 
 # FrontEnd
 ## Installation
@@ -60,7 +60,7 @@ npm run test:unit
 - User input is content checked client-side
 
 - API in routes.py
-- algorithme in odds_computer.py
+- algorithm in odds_computer.py
 ## Setup
 - the app was created using vue-cli
 - dev dependencies and production dependencies correctly separated, using ESlint and babel
