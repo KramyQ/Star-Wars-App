@@ -76,6 +76,7 @@ pytest -v
 - Using placeholders in the front to support language change.
 - Enhancing unit tests.
 - Using a generic object to handle api calls and responses to the user and add a loading state.
+- Implement that generic object in the Vuex store.
 
 # CLI
 
