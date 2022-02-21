@@ -100,6 +100,7 @@ pyinstaller --onefile give-me-the-odds.py
 Don't forget to put your universe.db of choice in the root folder of the exe.
 
 # Algorithme
+The thoroughly commented version of the algo is in the backend server
 # BFS
 I am using a BFS(Breadth First Search) Solution 
 ## Pros:
