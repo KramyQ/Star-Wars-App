@@ -25,6 +25,7 @@ I was asked to make a production ready app not to setup the deployment that shou
 - env file for multi environnement support
 - no deployment context
 - dependencies in the requirement.txt, setup.py not used as there are no abstract or custom libs needed
+- CORS handling
 ## Testing
 - API, validations and logic are unit and integration tested
 - Missing db and facory tests (lack of time)
