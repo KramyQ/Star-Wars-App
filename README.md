@@ -58,7 +58,7 @@ npm run test:unit
 - App structured using vue single page components, and vue components
 - Components are not lazy loaded/ condition loaded client side, because of the application scale, but I am sensitive to its usefullness in larger applications.
 - Api requests are abstracted using controllers
-- User input is content checked client-side
+- User input file is aynschronously content checked client-side
 
 ## Setup
 - the app was created using vue-cli
