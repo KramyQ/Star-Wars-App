@@ -7,13 +7,13 @@ class OddsComputer:
         self.bounty_hunters = empire_parameters['bounty_hunters']
         self.departure = millennium_falcon_parameters['departure']
 
-    # Function responsible for creating our first route data point that will start the iteration of the main algorithme
+    # Function responsible for creating our first route data point that will start the iteration of the main algorithm
     def initRoute(self):
         bounty_hunters_present = 0
         for planet_hunting_day in self.bounty_hunters:
             if (planet_hunting_day['planet'] == self.departure and planet_hunting_day['day'] == 0):
                 bounty_hunters_present = 1
-        # Standard format of the manipulated object instanciation wouldn't bring much value
+        # Standard format of the manipulated object route point
         return {'current_planet': self.departure,
                 'next_move_time': 0,
                 'nb_bounty_hunters_met': bounty_hunters_present,
@@ -21,18 +21,20 @@ class OddsComputer:
 
     def get_next_routes_points(self, route_point):
         next_route_points = []
-        # Adding to the next routes all the routes achievable before the countdown and within the ship autonomy
+        # Adding to the next route points all the route points achievable before the countdown and within the ship autonomy
         for connection in self.planet_connections:
             if (route_point['current_planet'] in connection['link'] and route_point['next_move_time'] + connection[
                 'travel_time']
                     <= self.countdown and route_point['current_autonomy'] - connection[
                         'travel_time'] >= 0):
                 target_planet = list(filter(lambda x: x != route_point['current_planet'], connection['link']))[0]
+                # Checking for bounty_hunters
                 bounty_hunters_present = 0
                 for planet_hunting_day in self.bounty_hunters:
                     if (planet_hunting_day['planet'] == target_planet and planet_hunting_day['day'] == route_point[
                         'next_move_time'] + connection['travel_time']):
                         bounty_hunters_present = 1
+                # creating a new route after meeting all the conditions
                 next_route_points.append({
                     'current_planet': target_planet,
                     'next_move_time': route_point['next_move_time'] + connection['travel_time'],
@@ -64,7 +66,7 @@ class OddsComputer:
         # We keep iterating while we still have time to move
         if current_day <= self.countdown:
             for route_point in possible_route_points:
-                # If the route has reached the destination we keep it and check if it's a better route than the ones we already had
+                # If the route has reached the destination we save it and check if it's a better route than the ones we already had
                 if (route_point['current_planet'] == self.arrival):
                     # We stop iterating if the route is optimal
                     if (route_point['nb_bounty_hunters_met'] == 0):
@@ -82,6 +84,7 @@ class OddsComputer:
                     # Else the route point stays dormant and we pass it along until the day for it to move comes
                     else:
                         next_route_points.append(route_point)
+            # We start the next day and loop again on our new routes and dormant (ship traveling) others
             return self.pick_best_route(next_route_points, current_day + 1,
                                         nb_bounty_hunters_met_on_success)
         # We stop iterating once we are past the countdown
