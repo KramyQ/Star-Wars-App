@@ -30,7 +30,7 @@ I was asked to make a production ready app not to setup the deployment that shou
 - CORS handling
 ## Testing
 - API, validations and logic are unit and integration tested
-- Missing db and facory tests (lack of time)
+- Missing db and factory tests (lack of time)
 ## Security
 - DOS handled at a lower level (web server).
 - SQL injections can't happen in the current.
