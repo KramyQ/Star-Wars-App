@@ -4,12 +4,12 @@ from flask_inputs.validators import JsonSchema
 compute_odds_schema = {
     'type': 'object',
     'properties': {
-        'countdown': {'type': 'number'},
+        'countdown': {'type': 'integer', "minimum": 0},
         'bounty_hunters': {"type": "array",
                            "items": {
                                "type": "object", 'properties': {
                                    'planet': {'type': 'string'},
-                                   'day': {'type': 'integer'}
+                                   'day': {'type': 'integer', "minimum": 1}
                                }, 'required': ['planet', 'day']
                            }}
     },

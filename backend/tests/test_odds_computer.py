@@ -1,6 +1,6 @@
 from onboard_computer_api.odds_computer import OddsComputer
 
-db_extract = [{'link': ['Tatooine', 'Dagobah'], 'travelTime': 6}, {'link': ['Dagobah', 'Endor'], 'travelTime': 4}, {'link': ['Dagobah', 'Hoth'], 'travelTime': 1}, {'link': ['Hoth', 'Endor'], 'travelTime': 1}, {'link': ['Tatooine', 'Hoth'], 'travelTime': 6}]
+db_extract = [{'link': ['Tatooine', 'Dagobah'], 'travel_time': 6}, {'link': ['Dagobah', 'Endor'], 'travel_time': 4}, {'link': ['Dagobah', 'Hoth'], 'travel_time': 1}, {'link': ['Hoth', 'Endor'], 'travel_time': 1}, {'link': ['Tatooine', 'Hoth'], 'travel_time': 6}]
 starting_parameters = {'autonomy': 6, 'departure': 'Tatooine', 'arrival': 'Endor', 'routes_db': 'universe.db'}
 empire_parameters = {'countdown': 9, 'bounty_hunters': [{'planet': 'Hoth', 'day': 6}, {'planet': 'Hoth', 'day': 7}, {'planet': 'Hoth', 'day': 8}]}
 
@@ -36,6 +36,12 @@ empire_parameters2['countdown'] = 0
 
 def test_compute_odds_integration_with_limit_data(client):
     assert OddsComputer(starting_parameters2, empire_parameters2, db_extract2).get_success_rate() == 0
-    empire_parameters2['countdown'] = 10
+    empire_parameters2['countdown'] = -10
     assert OddsComputer(starting_parameters2, empire_parameters2, db_extract2).get_success_rate() == 0
+    empire_parameters2['countdown'] = 10
+    starting_parameters2['autonomy'] = -1
+    assert OddsComputer(starting_parameters2, empire_parameters2, db_extract2).get_success_rate() == 0
+    empire_parameters2['countdown'] = 10
+    starting_parameters2['autonomy'] = 8
+    assert OddsComputer(starting_parameters2, empire_parameters2, db_extract2).get_success_rate() == 100
 

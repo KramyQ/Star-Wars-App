@@ -1,24 +1,38 @@
 <template>
-  <label class="Text"> Please import your information </label>
-  <br />
-  <br />
-  <input
-    id="fileUpload"
-    type="file"
-    accept="application/json"
-    @change="handleFileUpload($event)"
-    hidden
-  />
-  <button @click="chooseFiles()">Upload</button>
-  <button @click="submitFile()">Send</button>
+  <odds-modal
+    v-if="oddsModal"
+    @close-modal="closeModal"
+    :message="this.oddsModalMessage"
+  >
+  </odds-modal>
+  <div v-else>
+    <label class="Text"> Please import your information </label>
+    <br />
+    <br />
+    <input
+      id="fileUpload"
+      type="file"
+      accept="application/json"
+      @change="handleFileUpload($event)"
+      hidden
+    />
+    <button @click="chooseFiles()">Upload</button>
+    <button @click="submitFile()">Send</button>
+  </div>
 </template>
 
 <script>
+import OddsModal from "@/components/oddsPrediction/oddsModal";
+import { readFileAsText, validateEmpireJson } from "@/services/dataValidation";
+
 export default {
   name: "oddsUploadInterface",
+  components: { OddsModal },
   data() {
     return {
       file: "",
+      oddsModal: false,
+      oddsModalMessage: "",
     };
   },
   methods: {
@@ -29,7 +43,23 @@ export default {
       document.getElementById("fileUpload").click();
     },
     submitFile() {
-      this.$emit("send-rebel-info", { file: this.file });
+      if (this.file != "") {
+        readFileAsText(this.file).then((textFile) => {
+          if (validateEmpireJson(textFile)) {
+            this.$emit("send-rebel-info", { file: this.file });
+          } else {
+            this.oddsModal = true;
+            this.oddsModalMessage =
+              "Please import a file with the right format.";
+          }
+        });
+      } else {
+        this.oddsModal = true;
+        this.oddsModalMessage = "Please import a file.";
+      }
+    },
+    closeModal() {
+      this.oddsModal = false;
     },
   },
 };
