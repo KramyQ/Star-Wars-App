@@ -36,10 +36,9 @@ app
 - No uncontrolled data exposure
 
 ## Todo(missing)
-- DB and starting parameters not validated
+- DB and starting parameters not validated, algorithm limit values not controlled (+32bits, negative values), input control only done on the client input (API), not the conf and starting files
 - enhanced tests with variable parameters for cases
 - loging system but here, I couldn't have logged much, ex: IP of the people accessing my public API, and I assume this it automatically done on the web server level.
-- algorithm limit values not controlled (+32bits, negative values)
 
 # FrontEnd
 ## Installation
