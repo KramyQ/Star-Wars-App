@@ -32,11 +32,10 @@ I was asked to make a production ready app not to setup the deployment that shou
 - API, validations and logic are unit and integration tested
 - Missing db and factory tests (lack of time)
 ## Security
-- DOS handled at a lower level (web server).
-- SQL injections can't happen in the current.
-app
+- DDOS handled at a lower level (web server).
+- SQL injections can't happen in the current app.
 - Insecure deserialization not happening with a json tested content.
-- No uncontrolled data exposure
+- No uncontrolled data exposure.
 
 ## Todo(missing)
 - DB and starting parameters not validated, algorithm limit values not controlled (+32bits, negative values), input control only done on the client input (API), not the conf and starting files
