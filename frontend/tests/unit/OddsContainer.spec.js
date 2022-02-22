@@ -25,10 +25,9 @@ describe("oddsContainer.vue", () => {
   })
   it("container test api", async () => {
     getOdds.mockResolvedValueOnce(0)
-    const wrapper = mount(oddsContainer)
+    // const wrapper = mount(oddsContainer)
     getOdds()
     await flushPromises()
-    // Function is not called properly because it is called inside an other function in the component therefor invisible because nested
-    expect(getOdds).toHaveBeenCalledTimes(1)
+    expect(getOdds).toHaveBeenCalledTimes(1) // X
     })
 })

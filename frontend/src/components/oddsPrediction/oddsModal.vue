@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="oddsModalContent" id="oddsModalContent">
-      <p>{{message}}</p>
+      <p id="message-display">{{message}}</p>
       <button class="button"  @click="$emit('close-modal')">Close</button>
     </div>
   </div>
