@@ -20,7 +20,9 @@ I was asked to make a production ready app not to setup the deployment that shou
 - Using a factory to create the app and a config file with the env variables attributions centralised
 - api is modularised using flask blueprints
 - apis content validated
-- db accessed with a controller (ORM not used)
+- db accessed with a controller and ORM
+- API in routes.py
+- algorithm in odds_computer.py
 ## Setup
 - env file for multi environnement support
 - no deployment context
@@ -59,8 +61,6 @@ npm run test:unit
 - Api requests are abstracted using controllers
 - User input is content checked client-side
 
-- API in routes.py
-- algorithm in odds_computer.py
 ## Setup
 - the app was created using vue-cli
 - dev dependencies and production dependencies correctly separated, using ESlint and babel
