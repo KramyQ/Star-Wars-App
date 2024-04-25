@@ -1,4 +1,4 @@
-I have let the .env in place on git for quick testing purpose of course.
+The .env is on git for quick testing purpose of course.
 
 # Backend
 ## Installation
